@@ -1,0 +1,25 @@
+#!/bin/bash
+
+COMMAND=$1
+
+shift
+
+ARGS=$@
+
+TILDE_DIR=$HOME/.tilde
+TILDE_PLUGINS_DIR=$TILDE_DIR/plugins
+
+init() {
+  mkdir -p $TILDE_DIR
+  mkdir -p $TILDE_PLUGINS_DIR
+}
+
+list() {
+  ls -la $TILDE_PLUGINS_DIR
+}
+
+install() {
+  git clone $1
+}
+
+$COMMAND $ARGS
